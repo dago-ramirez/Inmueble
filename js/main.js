@@ -11,12 +11,13 @@ document.getElementById("btn-guardar-inmueble").addEventListener('click', (e) =>
         documento_almacenado = localStorage.getItem("doc-propietario");
 
         genero = document.getElementById("genero-propietario");
-        localStorage.setItem("nombre-propietario", nombre.value);
+        localStorage.setItem("genero-propietario", nombre.value);
+        genero_almacenado = localStorage.setItem("genero-propietario", nom;
 
 
         fecha_nac = document.getElementById("fecha-nac-propietario");
         localStorage.setItem("nombre-propietario", nombre.value);
-        
+
 
         console.log(nombre_almacenado);        
     }else{
