@@ -9,7 +9,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="imagenes/iconos/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="imagenes/iconos/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="imagenes/iconos/favicon-16x16.png">
-  <link rel="manifest" href="imagenes/iconos/site.webmanifest">
+  <!-- <link rel="manifest" href="imagenes/iconos/site.webmanifest"> -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
   integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
@@ -162,19 +162,17 @@
                                       <!-- ¿Cómo relaciono el for="tipo" con los input de los radio check y cómo  
                                       se establece el required-->
                                       
-                                      <label for="tipo">Tipo (*)</label>
-                                      <div>
+                                      <label>Tipo (*)</label><br/>
                                         <div class="custom-control custom-radio custom-control-inline">
-                                          <input type="radio" id="customRadioInline1" name="customRadioInline1"
-                                            class="custom-control-input">
-                                          <label class="custom-control-label" for="customRadioInline1">Apartamento</label>
+                                          <input type="radio" id="tipo_apartamento" name="tipo_inmueble"
+                                            class="custom-control-input" value="A">
+                                          <label class="custom-control-label" for="tipo_apartamento">Apartamento</label>
                                         </div>
                                         <div class="custom-control custom-radio custom-control-inline">
-                                          <input type="radio" id="customRadioInline2" name="customRadioInline1"
-                                            class="custom-control-input">
-                                          <label class="custom-control-label" for="customRadioInline2">Casa</label>
+                                          <input type="radio" id="tipo_casa" name="tipo_inmueble"
+                                            class="custom-control-input" value="C">
+                                          <label class="custom-control-label" for="tipo_casa">Casa</label>
                                         </div>
-                                      </div>
                                     </div>
                                   </article>
                                 </article>
