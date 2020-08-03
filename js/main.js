@@ -3,7 +3,7 @@ const DATOS_FORMULARIO = [
         datos_propietario : {
             nombre : "Juan", 
             documento : "Perez", 
-            genero : "M", 
+            genero : "H", 
             fech_nac : "10-10-1980"
         }, 
         datos_inmueble : {
@@ -14,16 +14,6 @@ const DATOS_FORMULARIO = [
         }
     }
 ];
-/*
-numeros.map(function(elemento, p){  
-	console.log("=====");
-    console.log(p, elemento);
-	console.log("=====");
-    return "posición: "+elemento;
-})
-[1,2,3,4,5]
-["posición: 1","posición: 2","posición: 3","posición: 4","posición: 5"]
-*/
 	
 document.getElementById("btn-guardar-inmueble").addEventListener('click', e =>{
 	let nombre_almacenado, documento_almacenado, 
@@ -65,6 +55,7 @@ document.getElementById("btn-guardar-inmueble").addEventListener('click', e =>{
     DATOS_FORMULARIO.push(inmueble);
     document.getElementById("frm-mensualidad").reset();
     alert("Los datos fueron almacenados");
+    cargarDatosEnTabla();
     $('#modal-adicionar').modal('toggle');
         
 });
@@ -75,19 +66,15 @@ $(document).ready((e) => {
     });
 });
 
-function calcularEdad(fecha_nacimiento){
-    let ageDifMs = Date.now() - fecha_nacimiento.getTime();
-    let ageDate = new Date(ageDifMs);
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
-}
-
 function cargarDatosEnTabla() {
+    // Se resetea la tabla
     document.querySelector("#tbl-mensualidades tbody").innerHTML = "";
+    // Se recorre el arreglo y se almacenan los datos en la tabla
     DATOS_FORMULARIO.forEach(registro => {
         document.querySelector("#tbl-mensualidades tbody").innerHTML += `<tr>
                                                                         <td>${registro.datos_propietario.nombre}</td>
                                                                         <td>${calcularEdad(new Date(registro.datos_propietario.fech_nac))} años</td>
-                                                                        <td>${registro.datos_propietario.genero}</td>
+                                                                        <td>${registro.datos_propietario.genero === H ? "Hombre" : "Mujer"}</td>
                                                                         <td>${0}</td>
                                                                         <td>${registro.datos_inmueble.fech_mensualidad}</td>
                                                                         <td><a>Ver</a></td>
@@ -95,13 +82,22 @@ function cargarDatosEnTabla() {
     });    
 }
 
+function calcularEdad(fecha_nacimiento){
+    let ageDifMs = Date.now() - fecha_nacimiento.getTime();
+    let ageDate = new Date(ageDifMs);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
+
 function recorrerVector() {
     let arreglo = [3, 5, 8, 1];
-    // for (let i = 0; i < arreglo.length; i++) {
-    //     console.log(arreglo[i]);        
-    // }
     // let r = arreglo.forEach((element, indice) => console.log (indice));
     let r = arreglo.map((element, indice) => element + 1);
     // console.log (indice, element);
     console.log("La función retorna: ", r);
+}
+
+function condicionalReducido() {
+    let x, year = 1990;
+    x = year > 2000 ?  5 :  6;
+    return x;
 }
