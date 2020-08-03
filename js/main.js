@@ -25,7 +25,7 @@ numeros.map(function(elemento, p){
 ["posición: 1","posición: 2","posición: 3","posición: 4","posición: 5"]
 */
 	
-document.getElementById("btn-guardar-inmueble").addEventListener('click', (e) =>{
+document.getElementById("btn-guardar-inmueble").addEventListener('click', e =>{
 	let nombre_almacenado, documento_almacenado, 
         genero_almacenado, fecha_nac_almacenada,mt_inmueble_almacenado,tipo_inmueble_almacenado, 
         num_habitantes_inmueble_almacenado, fech_men_inmueble_almacenado;
@@ -74,3 +74,34 @@ $(document).ready((e) => {
         $('#modal-adicionar').modal('toggle');
     });
 });
+
+function calcularEdad(fecha_nacimiento){
+    let ageDifMs = Date.now() - fecha_nacimiento.getTime();
+    let ageDate = new Date(ageDifMs);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
+
+function cargarDatosEnTabla() {
+    document.querySelector("#tbl-mensualidades tbody").innerHTML = "";
+    DATOS_FORMULARIO.forEach(registro => {
+        document.querySelector("#tbl-mensualidades tbody").innerHTML += `<tr>
+                                                                        <td>${registro.datos_propietario.nombre}</td>
+                                                                        <td>${calcularEdad(new Date(registro.datos_propietario.fech_nac))} años</td>
+                                                                        <td>${registro.datos_propietario.genero}</td>
+                                                                        <td>${0}</td>
+                                                                        <td>${registro.datos_inmueble.fech_mensualidad}</td>
+                                                                        <td><a>Ver</a></td>
+                                                                    <tr/>`;
+    });    
+}
+
+function recorrerVector() {
+    let arreglo = [3, 5, 8, 1];
+    // for (let i = 0; i < arreglo.length; i++) {
+    //     console.log(arreglo[i]);        
+    // }
+    // let r = arreglo.forEach((element, indice) => console.log (indice));
+    let r = arreglo.map((element, indice) => element + 1);
+    // console.log (indice, element);
+    console.log("La función retorna: ", r);
+}
