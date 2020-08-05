@@ -1,3 +1,5 @@
+import { DatosPropitario } from "."
+
 const DATOS_FORMULARIO = [
     {
         datos_propietario : {
@@ -53,9 +55,9 @@ document.getElementById("btn-guardar-inmueble").addEventListener('click', e =>{
         alert("Error de validación de campos.")
     }
     DATOS_FORMULARIO.push(inmueble);
+    cargarDatosEnTabla();
     document.getElementById("frm-mensualidad").reset();
     alert("Los datos fueron almacenados");
-    cargarDatosEnTabla();
     $('#modal-adicionar').modal('toggle');
         
 });
@@ -74,7 +76,7 @@ function cargarDatosEnTabla() {
         document.querySelector("#tbl-mensualidades tbody").innerHTML += `<tr>
                                                                         <td>${registro.datos_propietario.nombre}</td>
                                                                         <td>${calcularEdad(new Date(registro.datos_propietario.fech_nac))} años</td>
-                                                                        <td>${registro.datos_propietario.genero === H ? "Hombre" : "Mujer"}</td>
+                                                                        <td>${registro.datos_propietario.genero === "H" ? "Hombre" : "Mujer"}</td>
                                                                         <td>${0}</td>
                                                                         <td>${registro.datos_inmueble.fech_mensualidad}</td>
                                                                         <td><a>Ver</a></td>
@@ -101,3 +103,6 @@ function condicionalReducido() {
     x = year > 2000 ?  5 :  6;
     return x;
 }
+
+// jsonModulo.funcionSaludar();
+// console.log("El nombre que se importo fue " + NOMBRE + " y la edad fue "+edad)
