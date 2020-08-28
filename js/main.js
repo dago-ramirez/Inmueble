@@ -1,4 +1,6 @@
-import { DatosPropitario } from "."
+import DatosPropitario from './propietario';
+let admon = DatosPropitario.admon;
+console.log(admon);
 
 const DATOS_FORMULARIO = [
     {
